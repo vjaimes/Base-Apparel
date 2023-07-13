@@ -1,0 +1,298 @@
+:root {
+  /* ### Primary */
+  --Desaturated-Red: hsl(0, 36%, 70%);
+  --Soft-Red: hsl(0, 93%, 68%);
+  --error: rgb(253, 70, 70);
+
+  /* ### Neutral */
+
+  --Dark-grayish-Red: hsla(0, 6%, 24%, 0.466);
+
+  /* ### Gradients */
+
+  /* - Linear, 135deg, from hsl(0, 0%, 100%), to hsl(0, 100%, 98%)
+- Linear, 135deg, from hsl(0, 80%, 86%), to hsl(0, 74%, 74%) */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "Josefin Sans", sans-serif;
+}
+
+body {
+  display: grid;
+  place-items: center;
+  color: var(--Desaturated-Red);
+}
+
+.container {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  background-color: antiquewhite;
+}
+
+article {
+  width: 60%;
+  background: url(images/bg-pattern-desktop.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-top: calc(50rem / 16);
+  padding-left: calc(200rem / 16);
+  background-color: rgb(255, 250, 250);
+}
+
+article > img {
+  margin-bottom: 150px;
+}
+
+.logo-container {
+  margin-bottom: 128px;
+}
+
+.mobile-hero {
+  position: absolute;
+  bottom: -20%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: -5;
+  object-fit: fill;
+}
+
+.mobile-container {
+  display: none;
+  width: 100%;
+  height: 200px;
+  background-color: transparent;
+  position: relative;
+  z-index: 5;
+  background-color: var(--Desaturated-Red);
+  overflow: hidden;
+}
+
+h1 {
+  font-size: calc(96rem / 16);
+  margin-bottom: 24px;
+  line-height: 1;
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: 10px;
+}
+
+h1 > :nth-child(n + 2) {
+  font-weight: 400;
+  color: rgb(59, 59, 59);
+}
+
+p {
+  margin-bottom: 24px;
+  width: calc(500rem / 16);
+  line-height: 1.7;
+}
+
+.input-wrapper {
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--Dark-grayish-Red);
+  border-radius: 30px;
+  overflow: hidden;
+  width: fit-content;
+  width: 500px;
+  height: 60px;
+}
+
+.input-invalid {
+  border: 2px solid var(--Soft-Red);
+}
+
+input {
+  width: 80%;
+  height: 100%;
+  text-indent: 20px;
+  border: none;
+  background-color: transparent;
+  outline: none;
+}
+
+input::placeholder {
+  color: var(--Desaturated-Red);
+  font-family: "Josefin sans", sans-serif;
+  font-size: calc(16rem / 16);
+}
+
+input:invalid {
+  appearance: none;
+}
+
+@keyframes gradient-anim {
+  0% {
+    background-position: 0 50%;
+    box-shadow: 5px 5px 100px 5px var(--Soft-Red);
+  }
+  100% {
+    background-position: 100% 50%;
+    box-shadow: 5px 5px 30px 5px var(--Soft-Red);
+  }
+}
+
+button {
+  width: 20%;
+  border-radius: 30px;
+  border: none;
+  background-image: linear-gradient(
+    to right,
+    hsl(0, 80%, 86%),
+    hsl(0, 74%, 74%)
+  );
+  background-size: 200% 100%;
+  height: 100%;
+  box-shadow: 5px 5px 100px 5px var(--Soft-Red);
+}
+
+button:hover {
+  animation: gradient-anim 0.3s forwards;
+}
+
+.error-msg {
+  padding-left: 20px;
+  padding-top: 5px;
+  color: var(--Soft-Red);
+}
+
+.error-hidden {
+  display: none;
+}
+
+.img-side {
+  width: 40%;
+  background-color: black;
+  overflow: hidden;
+}
+
+.img-side > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.attribution {
+  font-size: 11px;
+  text-align: center;
+  position: fixed;
+  bottom: 1em;
+  left: 1em;
+}
+
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
+
+@media (max-width: 81em) {
+  .logo-container {
+    margin-bottom: 32px;
+  }
+
+  .mobile-container {
+    display: block;
+  }
+
+  article {
+    padding-left: 100px;
+  }
+
+  .attribution {
+    display: none;
+  }
+}
+
+@media (max-width: 65em) {
+  article {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+
+  h1 {
+    font-size: calc(56rem / 16);
+  }
+
+  p {
+    width: calc(400rem / 16);
+  }
+
+  .input-wrapper {
+    width: calc(400rem / 16);
+  }
+}
+
+@media (max-width: 55em) {
+  .img-side {
+    display: none;
+  }
+
+  article {
+    width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: 50px;
+    margin-right: 50px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .logo {
+    padding-left: 30px;
+  }
+
+  article > h1,
+  article > p,
+  article > form {
+    align-self: center;
+  }
+
+  .logo {
+    margin-bottom: calc(32rem / 16);
+  }
+
+  .h1 {
+    align-items: center;
+  }
+
+  .mobile-hero {
+    display: block;
+  }
+
+  .mobile-container {
+    margin-bottom: calc(32rem / 16);
+  }
+}
+
+@media (max-width: 28em) {
+  article {
+    margin: 0;
+  }
+
+  .mobile-hero {
+    position: static;
+    transform: initial;
+    object-fit: cover;
+    margin: 0 auto;
+  }
+
+  .mobile-container {
+    margin: 0 auto;
+    margin-bottom: 32px;
+  }
+
+  p {
+    width: 290px;
+  }
+
+  .input-wrapper {
+    width: 290px;
+  }
+}
